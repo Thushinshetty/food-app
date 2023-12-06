@@ -1,38 +1,128 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Header.css */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #333;
+  padding: 10px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  width: 50px;
+  height: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-items {
+  list-style: none;
+  display: flex;
+}
+
+.nav-items ul {
+  margin: 0 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Body.css */
+
+.body {
+  padding: 20px;
+}
+
+.Search {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Spread cards evenly */
+}
+
+.res-card {
+  width: 300px; /* 3 cards in a row with margins */
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.3s ease; /* Add a smooth transition */
+}
+
+.res-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.res-card h3 {
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+}
+
+.res-card h4 {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+/* Hover effect */
+.res-card:hover {
+  transform: scale(1.05); /* Increase size on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+/* Add more styles as needed */
+/* Shimmer.css */
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* 3 cards in a row with margins */
+}
+
+.shimmer-card {
+  width: 300px; /* 3 cards in a row with margins */
+  margin: 10px;
+  height: 300px;
+  padding: 10px;
+  background: linear-gradient(to right, #f6f7f8 0%, #edeef1 50%, #f6f7f8 100%);
+  background-size: 200% 100%;
+  animation: shimmerAnimation 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmerAnimation {
+  0% {
+    background-position: -200% 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    background-position: 200% 0;
   }
+}
+
+.filter{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+.card-container {
+  position: relative;
+  /* Add other styles for your card container */
+}
+
+.open-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(125, 110, 110); /* Adjust the background color as needed */
+  color: white; /* Adjust the text color as needed */
+  padding: 5px; /* Adjust the padding as needed */
+  z-index: 1; /* Ensure the label is above other content */
 }
