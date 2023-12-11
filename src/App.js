@@ -7,22 +7,34 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
-import { lazy,Suspense } from "react";
+import { lazy, Suspense } from "react";
+import { Provider } from "react-redux";
+import appStore from "./Utils/appStore";
+import Cart from "./components/Cart";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 function App() {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Body />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/Grocery" element={
-        <Suspense fallback={<h1>Loading....</h1>}><Grocery /></Suspense>}></Route>
-        <Route path="/restaurant/:rid" element={<RestaurantMenu />}></Route>
-        <Route path="*" element={<Error />}></Route>
-      </Routes>
+      <Provider store={appStore}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Body />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+          <Route
+            path="/Grocery"
+            element={
+              <Suspense fallback={<h1>Loading....</h1>}>
+                <Grocery />
+              </Suspense>
+            }
+          ></Route>
+           <Route path="/Cart" element={<Cart />}></Route>
+          <Route path="/restaurant/:rid" element={<RestaurantMenu />}></Route>
+          <Route path="*" element={<Error />}></Route>
+        </Routes>
+      </Provider>
     </>
   );
 }

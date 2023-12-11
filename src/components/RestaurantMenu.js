@@ -15,9 +15,9 @@ export default function RestaurantMenu() {
 
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[0]?.card?.card?.info;
-  const { itemCards } =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card || [];
+  // const { itemCards } =
+  //   resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+  //     ?.card || [];
   //console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card);
   const Categories =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -39,7 +39,7 @@ export default function RestaurantMenu() {
           {Categories.map((item, index) => (
             <RestaurantCategory
               data={item?.card?.card}
-              showItems={index == showIndex ? true : false}
+              showItems={index === showIndex ? true : false}
               setShowIndex={() => setShowIndex(index)}
             />
           ))}
