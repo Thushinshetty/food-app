@@ -282,14 +282,14 @@ export default function Body() {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9369154&lng=77.6407258&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    // console.log(
-    //   json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants
-    // );
+     console.log(
+       json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+     );
     setResList(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredResList(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
